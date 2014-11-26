@@ -1,37 +1,4 @@
- 
-//helper functions
-var ltos=function (l){
-	 var result=""; 
-	 var ltos_iter=function (l,res){
-		
-		 
-		 if(isEmpty(l)){
-			 if(res.length)
-			     res=res.substr(0,res.length-1);
-			 return res;
-		 }
-		 var h=head(l);
-		 if(h.isList) 
-			 res=res+'('+ltos_iter(h,result)+')'+',';
-		 else 
-			 res+=h.toString()+",";
-		return ltos_iter(tail(l),res);
-	 
-	 };
- if(l==undefined)
-	 return undefined;
- return '('+ltos_iter(l,result)+')';
- }
- 
- var list_from_seq=function(...args){
-	 var result;
-	 result=list();
-	 for(var i=args.length-1;i>=0;i--)
-		 result=list(args[i],result)
-	return result;	 
- }
- 
-//end  helper functions
+
 
 // in memory of John McCarthy- LISP primitives 
 var CONS=(first,second)=>(f)=>f(first,second); 
