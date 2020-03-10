@@ -1,4 +1,6 @@
  
+ 
+
 // In memory of John Macarthy- Lisp style CONS, CAR and CDR
 var CONS= function(first,second){
 	  return function(f){
@@ -8,15 +10,15 @@ var CONS= function(first,second){
   
  
  var CAR= function (fn){
-	return function (x,y){
+	return fn(function (x,y){
 		return x;
-	};
+	});
  };
  
  var CDR=function (fn){
-	 return function(x,y){
+	 return fn(function(x,y){
 		 return y;
-	 };
+	 });
  };
  
 
